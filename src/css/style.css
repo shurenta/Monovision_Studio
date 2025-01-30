@@ -1,0 +1,721 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p,
+ol,
+ul {
+    margin: 0;
+}
+
+ol[role="list"],
+ul[role="list"] {
+    list-style: none;
+    padding-inline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+
+html {
+    font-family: Inter, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --light-color: #f5f5f7;
+    --dark-color: #221f20;
+    --container-padding-inline: 13%;
+    --footer-padding-inline: 10%;
+
+    @media screen and (max-width: 768px) {
+        --container-padding-inline: 6%;
+        --footer-padding-inline: 6%;
+    }
+
+    @media screen and (max-width: 576px) {
+        --container-padding-inline: 15px;
+        --footer-padding-inline: 15px;
+    }
+}
+
+.container {
+    padding: 0 var(--container-padding-inline);
+}
+
+.title {
+    color: var(--dark, #221F20);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+
+    span {
+        position: relative;
+    }
+
+    span::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+        width: 75px;
+        height: 2px;
+        background-color: #000;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 36px;
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 24px;
+    }
+}
+
+.promo {
+    position: relative;
+    min-height: 100vh;
+    background: url(../img/desktop/bg.jpg) center center / cover no-repeat;
+    padding-top: 75px;
+
+    @media screen and (max-width: 768px) {
+        & {
+            background-image: url(../img/tablet/tablet_bg.jpg);
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        min-height: 500px;
+        padding-top: 50px;
+    }
+}
+
+.promo__title {
+    color: var(--light-color, #F5F5F7);
+    font-size: 60px;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 768px) {
+        font-size: 48px;
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 26px;
+    }
+}
+
+.promo__subtitle {
+    margin-top: 124px;
+    color: var(--light-color, #F5F5F7);
+    font-size: 32px;
+    font-weight: 100;
+    line-height: normal;
+
+    @media screen and (max-width: 768px) {
+        & {
+            margin-top: 80px;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        & {
+            margin-top: 30px;
+            font-size: 16px;
+        }
+    }
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 3px 10px;
+    width: 160px;
+    min-height: 38px;
+    background: rgba(217, 217, 217, 0.00);
+    border: 1px solid var(--light-color, #F5F5F7);
+    text-decoration: none;
+    color: var(--light-color, #F5F5F7);
+    font-size: 16px;
+    font-weight: 100;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    /* &:hover {
+        box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.62);
+        font-weight: 500;
+    } */
+
+    /*Мы прописываем hover только в том случае если он поддерживается, если у нас есть мышка которая наводится на элемент*/
+    @media(hover: hover) {
+        &:hover {
+            box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.62);
+            font-weight: 500;
+        }
+    }
+
+    /*Второй вариант это когда мы указываем на то устройство в котором есть поинтер, если есть какой то указатель который
+    четко на води на элемент будет срабатывать hover*/
+    @media(pointer: fine) {
+        &:hover {
+            box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.62);
+            font-weight: 500;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 14px;
+        width: 120px;
+        min-height: 30px;
+    }
+}
+
+.promo__address {
+    position: relative;
+    margin-top: 100px;
+    color: var(--light-color, #F5F5F7);
+    font-size: 16px;
+    font-weight: 100;
+    line-height: normal;
+
+    address {
+        font-style: normal;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 49px;
+        background: url(../icons/Arrow.svg) center center / cover no-repeat;
+        position: absolute;
+        left: -45px;
+        top: -17px;
+    }
+
+    @media screen and (max-width: 768px) {
+        & {
+            margin-top: 80px;
+        }
+
+        &::before {
+            left: -40px;
+        }
+    }
+
+    /* иногда можно использовать свой промежцточный брекпоинт но часто это делать нельзя*/
+    @media screen and (max-width: 750px) {
+        &::before {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        margin-top: 233px;
+    }
+}
+
+.keywords {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 0 360px;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.20) 100%);
+
+    li {
+        list-style-type: none;
+        color: var(--light-color, #F5F5F7);
+        font-size: 10px;
+        font-weight: 100;
+        line-height: normal;
+    }
+
+    @media screen and (max-width: 1440px) {
+        & {
+            padding: 0 20px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        /* & li {
+            display: none;
+        } */
+
+        /* В формуле ниже говориться что мы будем показывать первые 9ть элементов. Вместо n идет номер по порядку (-0 + 9)
+        Потом n будет -1 (-1 + 9) и т.д. пока мы не дайдем до 9огоэлемента по порядку*/
+        /* & li:nth-child(-n+9) {
+            display: list-item;
+        } */
+
+        /* В формуле ниже мы скрываем последние 6ть элементов*/
+        & li:nth-last-child(-n + 6) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        & {
+            margin-top: 10px;
+        }
+
+        & li:nth-last-child(-n + 11) {
+            display: none;
+        }
+    }
+}
+
+.about {
+    padding-top: 80px;
+    background-color: var(--light-color);
+
+    @media screen and (max-width: 576px) {
+        padding-top: 50px;
+    }
+}
+
+.about__title {
+    color: var(--dark-color, #221F20);
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about__text {
+    margin-top: 20px;
+    width: 1100px;
+    color: var(--dark-color, #221F20);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: normal;
+
+    span {
+        color: #a5a5a5;
+    }
+
+
+    @media screen and (max-width: 1440px) {
+        width: 100%;
+        font-size: 24px;
+    }
+
+    @media screen and (max-width: 375px) {
+        font-size: 16px;
+    }
+
+}
+
+.sevices {
+    display: flex;
+    margin-top: 80px;
+
+    @media screen and (max-width: 1440px) {
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+
+    @media screen and (max-width: 375px) {
+        margin-top: 20px;
+        row-gap: 20px;
+    }
+}
+
+.services__items {
+    width: 50%;
+
+    @media screen and (max-width: 1440px) {
+        width: 100%;
+    }
+
+    ul {
+        margin-top: 20px;
+        padding: 0;
+
+        li {
+            position: relative;
+            margin-top: 10px;
+            list-style-type: none;
+            color: var(--dark-color, #221F20);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+
+            &:first-child::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -30px;
+                top: 2px;
+                width: 15px;
+                height: 15px;
+                background: url('../icons/Camera.svg') center center / cover no-repeat
+            }
+
+            &:nth-child(3)::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -30px;
+                top: 2px;
+                width: 15px;
+                height: 15px;
+                background: url('../icons/Edit.svg') center center / cover no-repeat
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            li {
+                &:first-child::before {
+                    left: -26px;
+                }
+
+                &:nth-child(3)::before {
+                    left: -26px;
+                }
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            li {
+                &:first-child::before {
+                    display: none;
+                }
+
+                &:nth-child(3)::before {
+                    display: none;
+                }
+            }
+        }
+
+        @media screen and (max-width: 375px) {
+            li {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.services__text {
+    width: 50%;
+    color: var(--dark-color, #221F20);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.4px;
+
+    @media screen and (max-width: 1440px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 375px) {
+        font-size: 12px;
+        letter-spacing: 0.24px;
+    }
+}
+
+.services__items-subtile {
+    color: var(--dark-color, #221F20);
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+
+    @media screen and (max-width: 375px) {
+        font-size: 12px;
+    }
+}
+
+.works {
+    background: var(--light-color, #F5F5F7);
+    padding-top: 80px;
+
+    @media screen and (max-width: 768px) {
+        padding-top: 50px;
+    }
+}
+
+.works__wrapper {
+    display: grid;
+    gap: 50px 30px;
+    /* 1fr мы использовали что бы на маленьких экранах изображения не выпадали, если им указать фиксированную ширину изображения не поместятся*/
+    grid-template-columns: repeat(2, 1fr);
+    /* 1fr мы использвали что бы между изображениями небыло быльших отступов. Так-как если указать фиксированную ширину,
+    высоты изображений не хватит что бы заполнить все место*/
+    grid-template-rows: repeat(2, 1fr) 1.5fr;
+    margin-top: 50px;
+
+    img {
+        /* ширина 100% указана для того что бы при изменении размера экрана у нас не ломалась сетка с изображенями. 
+        Они всегда буду занимать все место по ширине а не уменьшаться, как это ьбылобы при задании фиксированной ширины */
+        width: 100%;
+        /* Высота 100% указана для того что бы все изображения занимали одинаковую высоту,
+         и сетка была ровной если рядом изображения разной высоты */
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    @media screen and (max-width: 768px) {
+        gap: 20px 30px;
+        margin-top: 40px;
+    }
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr) 1.5fr;
+        gap: 30px 0px;
+    }
+}
+
+.inspiration {
+    padding-top: 80px;
+    background: var(--light-color, #F5F5F7);
+
+    @media screen and (max-width: 768px) {
+        padding-top: 50px;
+    }
+}
+
+.wrapper__grid {
+    margin-top: 53px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+        object-fit: cover;
+    }
+
+    @media screen and (max-width:768px) {
+        margin-top: 43px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 20px 30px;
+    }
+
+    @media screen and (max-width:576px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 2fr) 1fr;
+    }
+}
+
+#tenement {
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+
+    @media screen and (max-width:768px) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+    }
+
+    @media screen and (max-width:576px) {
+        grid-column: 1 / 2;
+        grid-row: 4 / 6;
+
+    }
+}
+
+#sky {
+    grid-column: 2 / 4;
+
+    @media screen and (max-width:768px) {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+    }
+
+    @media screen and (max-width:576px) {
+        grid-column: 1 / 1;
+        grid-row: 7 / 7;
+
+    }
+}
+
+.customers {
+    padding-top: 80px;
+    padding-bottom: 100px;
+    background: var(--light-color, #F5F5F7);
+
+    @media screen and (max-width:768px) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+.customers__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 53px;
+
+    img {
+        /*Мы от общей ширины контйнера отнимаем три разрыва(gap 30px по три раза) и делим на 4 (это наши изображения в ряду).
+        Так мы установили ширину изображений*/
+        width: calc((100% - 90px) / 4);
+        box-shadow: 7px 7px 12px 0px rgba(0, 0, 0, 0.25);
+        /* filter: grayscale(100%);
+        transition: all 0.3s;
+
+        &:hover {
+            filter: grayscale(0%);
+        } */
+    }
+
+    @media screen and (max-width:768px) {
+        padding-top: 43px;
+        gap: 20px;
+    }
+
+    @media screen and (max-width:576px) {
+        justify-content: space-between;
+        padding-top: 33px;
+        gap: 20px 0;
+
+        img {
+            width: calc((100% - 36px) / 2);
+        }
+    }
+
+}
+
+.footer__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 88px var(--footer-padding-inline);
+    background: #000;
+    color: var(--light-color, #F5F5F7);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+
+    a {
+        text-decoration: none;
+        color: var(--light-color, #F5F5F7);
+    }
+
+    @media screen and (max-width:768px) {
+        padding-top: 35px;
+        padding-bottom: 40px;
+        flex-direction: column;
+        align-items: start;
+        font-size: 16px;
+        row-gap: 30px;
+    }
+
+    @media screen and (max-width:576px) {
+        align-items: center;
+    }
+
+}
+
+.footer__social {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    column-gap: 30px;
+
+    li {
+        border: 1px solid var(--Light, #F5F5F7);
+        background: rgba(217, 217, 217, 0.00);
+        width: 32px;
+        height: 32px;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+
+            /* img {
+                width: 22px;
+                height: 22px;
+            } */
+        }
+    }
+}
+
+.footer__link_icon {
+    width: 22px;
+    height: 22px;
+}
+
+.footer__link_icon_1 {
+    background-image: url('../icons/logo/facebook.svg');
+}
+
+.footer__link_icon_2 {
+    background-image: url('../icons/logo/tg.svg');
+}
+
+.footer__link_icon_3 {
+    background-image: url('../icons/logo/whatsapp.svg');
+}
+
+.footer__adress {
+    font-style: normal;
+
+    @media screen and (max-width:576px) {
+        order: 3;
+    }
+
+    /* @media screen and (max-width:768px) {
+        text-align: center;
+    } */
+}
+
+.grid__container {
+    background-color: green;
+    container-type: inline-size;
+}
+
+.wrapper__div__element {
+    container-type: inline-size;
+    /* width: 500px; */
+}
+
+.grid__element {
+    background-color: red;
+    width: 400px;
+    height: 100px;
+    margin: 20px;
+
+    @container (max-width: 600px) {
+        background-color: blue;
+        width: 50%;
+    }
+}
